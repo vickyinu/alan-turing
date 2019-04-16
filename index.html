@@ -34,7 +34,31 @@
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+	<![endif]-->
+	
+	<style>
+		.countdown {
+		  text-align: center;
+		  margin-bottom: 20px;
+		}
+		.countdown .timeel {
+		  display: inline-block;
+		  padding: 10px;
+		  background: #15151580;
+		  margin: 0;
+		  color: white;
+		  min-width: 2.6rem;
+		  margin-left: 13px;
+		  border-radius: 10px 0 0 10px;
+		}
+		.countdown span[class*="timeRef"] {
+		  border-radius: 0 10px 10px 0;
+		  margin-left: 0;
+		  background: #ffffff99;
+		  color: black;
+		}
+	</style>
+
   </head>
   <body>
   	
@@ -93,14 +117,25 @@
 
 							<h1>HELLO! WELCOME TO EVENTOZ</h1>
 							<h2>The Biggest International IT Professional Conference</h2>
-							<p class="mu-event-date-line">19 - 21 February, 2018. New York, USA</p>
+							<p class="mu-event-date-line">19 - 21 February, 2020. New York, USA</p>
 
-							<div class="mu-event-counter-area">
+							<!-- <div class="mu-event-counter-area">
 								<div id="mu-event-counter">
 									
 								</div>
+							</div> -->
+							<div class="mu-event-counter-area">
+							<div class="countdown" id="countdown1">
+								<span class="timeel days">00</span>
+								<span class="timeel timeRefDays">dias</span>
+								<span class="timeel hours">00</span>
+								<span class="timeel timeRefHours">horas</span>
+								<span class="timeel minutes">00</span>
+								<span class="timeel timeRefMinutes">minutos</span>
+								<span class="timeel seconds">00</span>
+								<span class="timeel timeRefSeconds">segundos</span>
+							  </div>
 							</div>
-
 						</div>
 					</div>
 					<!-- End hero featured area -->
@@ -930,7 +965,41 @@
 	<!-- Slick slider -->
     <script type="text/javascript" src="assets/js/slick.min.js"></script>
     <!-- Event Counter -->
-    <script type="text/javascript" src="assets/js/jquery.countdown.min.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.countdown.min.js"></script>
+	<script type="text/javascript">
+		/*
+		 * Basic Count Down to Date and Time
+		 * Author: @guwii / guwii.com
+		 * https://guwii.com/bytes/easy-countdown-to-date-with-javascript-jquery/
+		 */
+		window.onload = function() {
+		// Month Day, Year Hour:Minute:Second, id-of-element-container
+		countDownToTime("Jun 15, 2019 17:00:00", 'countdown1'); // ****** Change this line!
+		}
+		function countDownToTime(countTo, id) {
+		countTo = new Date(countTo).getTime();
+		var now = new Date(),
+			countTo = new Date(countTo),
+			timeDifference = (countTo - now);
+			
+		var secondsInADay = 60 * 60 * 1000 * 24,
+			secondsInAHour = 60 * 60 * 1000;
+
+		days = Math.floor(timeDifference / (secondsInADay) * 1);
+		hours = Math.floor((timeDifference % (secondsInADay)) / (secondsInAHour) * 1);
+		mins = Math.floor(((timeDifference % (secondsInADay)) % (secondsInAHour)) / (60 * 1000) * 1);
+		secs = Math.floor((((timeDifference % (secondsInADay)) % (secondsInAHour)) % (60 * 1000)) / 1000 * 1);
+
+		var idEl = document.getElementById(id);
+		idEl.getElementsByClassName('days')[0].innerHTML = days;
+		idEl.getElementsByClassName('hours')[0].innerHTML = hours;
+		idEl.getElementsByClassName('minutes')[0].innerHTML = mins;
+		idEl.getElementsByClassName('seconds')[0].innerHTML = secs;
+
+		clearTimeout(countDownToTime.interval);
+		countDownToTime.interval = setTimeout(function(){ countDownToTime(countTo, id); },1000);
+		}
+	</script>
     <!-- Ajax contact form  -->
     <script type="text/javascript" src="assets/js/app.js"></script>
   
