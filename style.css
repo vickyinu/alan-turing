@@ -1786,6 +1786,7 @@ button:focus {
 .mu-logo {
 	font-family: "Octogonal", sans-serif;
     font-size: 4.5em;
+	background-color:#ffffff00;
 }
 
 .mu-hero-featured-content h1, .mu-hero-featured-content h2 {
@@ -1793,7 +1794,6 @@ button:focus {
     font-size: 2em;
 	
 }
-
 
 
 
