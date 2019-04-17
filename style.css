@@ -250,9 +250,10 @@ button:focus {
 	font-family: 'Montserrat', sans-serif;
 	display: inline-block;
 	font-weight: 600;
-	background: #fff;
+/*	background: #fff;*/
 	padding: 5px 20px;
 	margin-bottom: 30px;
+	color: #fff;
 }
 
 
@@ -1768,4 +1769,32 @@ button:focus {
 	
 	
 }
+
+/* CUSTOM CSS */
+
+.mu-hero-overlay, .mu-video-overlay {
+    background-color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(to right, rgb(56, 0, 68), rgb(56, 0, 68));
+}
+
+@font-face {
+	font-family: "Octogonal";
+	/*src: url("seminarioalanturing.com/assets/fonts/octagonal/octar-017.ttf") format("truetype");*/
+	src: url("./assets/fonts/octagonal/octar-017.ttf") format("truetype");
+}
+
+.mu-logo {
+	font-family: "Octogonal", sans-serif;
+    font-size: 4.5em;
+}
+
+.mu-hero-featured-content h1, .mu-hero-featured-content h2 {
+	font-family: "Octogonal", sans-serif;
+    font-size: 2em;
+	
+}
+
+
+
+
 
