@@ -38,28 +38,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 	
-	<!-- <style>
-		.countdown {
-		  text-align: center;
-		  margin-bottom: 20px;
-		}
-		.countdown .timeel {
-		  display: inline-block;
-		  padding: 10px;
-		  background: #15151580;
-		  margin: 0;
-		  color: white;
-		  min-width: 2.6rem;
-		  margin-left: 13px;
-		  border-radius: 10px 0 0 10px;
-		}
-		.countdown span[class*="timeRef"] {
-		  border-radius: 0 10px 10px 0;
-		  margin-left: 0;
-		  background: #ffffff99;
-		  color: black;
-		}
-	</style> -->
 
   </head>
   <body>
@@ -153,6 +131,40 @@
 				</div>
 			</div>
 		</div>
+	<script type="text/javascript">
+		/*
+		 * Basic Count Down to Date and Time
+		 * Author: @guwii / guwii.com
+		 * https://guwii.com/bytes/easy-countdown-to-date-with-javascript-jquery/
+		 */
+		window.onload = function() {
+		// Month Day, Year Hour:Minute:Second, id-of-element-container
+		countDownToTime("Jun 15, 2019 17:00:00", 'countdown1'); // ****** Change this line!
+		}
+		function countDownToTime(countTo, id) {
+		countTo = new Date(countTo).getTime();
+		var now = new Date(),
+			countTo = new Date(countTo),
+			timeDifference = (countTo - now);
+			
+		var secondsInADay = 60 * 60 * 1000 * 24,
+			secondsInAHour = 60 * 60 * 1000;
+
+		days = Math.floor(timeDifference / (secondsInADay) * 1);
+		hours = Math.floor((timeDifference % (secondsInADay)) / (secondsInAHour) * 1);
+		mins = Math.floor(((timeDifference % (secondsInADay)) % (secondsInAHour)) / (60 * 1000) * 1);
+		secs = Math.floor((((timeDifference % (secondsInADay)) % (secondsInAHour)) % (60 * 1000)) / 1000 * 1);
+
+		var idEl = document.getElementById(id);
+		idEl.getElementsByClassName('days')[0].innerHTML = days;
+		idEl.getElementsByClassName('hours')[0].innerHTML = hours;
+		idEl.getElementsByClassName('minutes')[0].innerHTML = mins;
+		idEl.getElementsByClassName('seconds')[0].innerHTML = secs;
+
+		clearTimeout(countDownToTime.interval);
+		countDownToTime.interval = setTimeout(function(){ countDownToTime(countTo, id); },1000);
+		}
+	</script>
 	</header>
 	<!-- End Header -->
 	
@@ -519,7 +531,7 @@
 								<div class="row">
 								
 									<!-- single price item -->
-									<div class="col-md-4">
+									<div class=".mu-pricing-content-centered" >
 										<div class="mu-single-price mu-popular-price">
 											<span class="mu-price-tag">PREÇO FIXO</span>
 											<div class="mu-single-price-head">
@@ -605,61 +617,6 @@
 		</section>
 		<!-- End Register -->
 
-		<!-- Start FAQ -->
-		<section id="mu-faq">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="mu-faq-area">
-
-							<div class="mu-title-area">
-								<h2 class="mu-title">FAQ</h2>
-								<p>Além das palestras, quais são os benefícios do evento?</p>
-							</div>
-
-							<div class="mu-faq-content">
-
-								<div class="panel-group" id="accordion">
-
-							        <div class="panel panel-default">
-							          <div class="panel-heading">
-							            <h4 class="panel-title">
-							              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true">
-							                <span class="fa fa-angle-down"></span> Horas complementares
-							              </a>
-							            </h4>
-							          </div>
-							          <div id="collapseOne" class="panel-collapse collapse in">
-							            <div class="panel-body">
-							              Após a realização do evento, será enviado por email o certificado de horas complementares
-							            </div>
-							          </div>
-							        </div>
-
-							        <div class="panel panel-default">
-							          <div class="panel-heading">
-							            <h4 class="panel-title">
-							              <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-							                <span class="fa fa-angle-up"></span> EM ANDAMENTO
-							              </a>
-							            </h4>
-							          </div>
-							          <div id="collapseTwo" class="panel-collapse collapse">
-							            <div class="panel-body">
-							              EM ANDAMENTO
-							            </div>
-							          </div>
-							        </div>
-
-							    </div>
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- End FAQ -->
 
 		<!-- Start Sponsors -->
 		<section id="mu-sponsors">
@@ -702,49 +659,6 @@
 		<!-- End Sponsors -->
 
 
-		<!-- Start Contact -->
-		<section id="mu-contact">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="mu-contact-area">
-
-							<div class="mu-title-area">
-								<h2 class="mu-heading-title">Entre em contato</h2>
-								<p>Deseja nos patrocinar? Nos mande uma mensagem.</p>
-							</div>
-
-							<!-- Start Contact Content -->
-							<div class="mu-contact-content">
-								<div class="row">
-
-								<div class="col-md-12">
-									<div class="mu-contact-form-area">
-										<div id="form-messages"></div>
-											<form id="ajax-contact" method="post" action="mailer.php" class="mu-contact-form">
-												<div class="form-group">                
-													<input type="text" class="form-control" placeholder="Nome" id="name" name="name" required>
-												</div>
-												<div class="form-group">                
-													<input type="email" class="form-control" placeholder="Email" id="email" name="email" required>
-												</div>              
-												<div class="form-group">
-													<textarea class="form-control" placeholder="Mensagem" id="message" name="message" required></textarea>
-												</div>
-												<button type="submit" class="mu-send-msg-btn"><span>ENVIAR</span></button>
-								            </form>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- End Contact Content -->
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- End Contact -->
-
 	</main>
 	
 	<!-- End main content -->	
@@ -782,40 +696,7 @@
     <script type="text/javascript" src="assets/js/slick.min.js"></script>
     <!-- Event Counter -->
 	<script type="text/javascript" src="assets/js/jquery.countdown.min.js"></script>
-	<script type="text/javascript">
-		/*
-		 * Basic Count Down to Date and Time
-		 * Author: @guwii / guwii.com
-		 * https://guwii.com/bytes/easy-countdown-to-date-with-javascript-jquery/
-		 */
-		window.onload = function() {
-		// Month Day, Year Hour:Minute:Second, id-of-element-container
-		countDownToTime("Jun 15, 2019 17:00:00", 'countdown1'); // ****** Change this line!
-		}
-		function countDownToTime(countTo, id) {
-		countTo = new Date(countTo).getTime();
-		var now = new Date(),
-			countTo = new Date(countTo),
-			timeDifference = (countTo - now);
-			
-		var secondsInADay = 60 * 60 * 1000 * 24,
-			secondsInAHour = 60 * 60 * 1000;
 
-		days = Math.floor(timeDifference / (secondsInADay) * 1);
-		hours = Math.floor((timeDifference % (secondsInADay)) / (secondsInAHour) * 1);
-		mins = Math.floor(((timeDifference % (secondsInADay)) % (secondsInAHour)) / (60 * 1000) * 1);
-		secs = Math.floor((((timeDifference % (secondsInADay)) % (secondsInAHour)) % (60 * 1000)) / 1000 * 1);
-
-		var idEl = document.getElementById(id);
-		idEl.getElementsByClassName('days')[0].innerHTML = days;
-		idEl.getElementsByClassName('hours')[0].innerHTML = hours;
-		idEl.getElementsByClassName('minutes')[0].innerHTML = mins;
-		idEl.getElementsByClassName('seconds')[0].innerHTML = secs;
-
-		clearTimeout(countDownToTime.interval);
-		countDownToTime.interval = setTimeout(function(){ countDownToTime(countTo, id); },1000);
-		}
-	</script>
     <!-- Ajax contact form  -->
     <script type="text/javascript" src="assets/js/app.js"></script>
   

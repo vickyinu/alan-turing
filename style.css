@@ -289,7 +289,7 @@ button:focus {
 .mu-hero-featured-content {
 	display: inline;
 	float: right;
-	margin-top: 50px;
+	margin-top: 30px;
 	text-align: center;
 	width: 100%;
 }
@@ -313,6 +313,7 @@ button:focus {
 	color: #333;
 	padding: 5px 10px;
 	display: inline-block;
+    font-size: 2em;
 	margin-top: 10px;
 	font-weight: 600;
 }
@@ -333,14 +334,14 @@ button:focus {
 
 .mu-event-counter-block {
 	border: 2px solid #fff;
-	border-radius: 50%;
+	border-radius: 10%;
 	display: inline-block;
 	height: 180px;
 	width: 180px;
 	text-align: center;
 	font-size: 22px;
 	color: #fff;
-	margin: 0 20px;
+	margin: 0 10px;
 	font-weight: 300;
 }
 
@@ -863,7 +864,7 @@ button:focus {
 
 .mu-pricing-conten {
 	display: inline;
-	float: left;
+	float: center;
 	margin-top: 50px;
 	width: 100%;
 }
@@ -1799,5 +1800,17 @@ button:focus {
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: "Octogonal", sans-serif;
+}
+
+.mu-hero-featured-content h1 {
+    font-size: 4em;
+}
+
+.mu-hero-featured-content h2 {
+    font-size: 3em;
+}
+
+.mu-pricing-content-centered {
+    float: center !important;
 }
 
